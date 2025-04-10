@@ -147,7 +147,7 @@ export default function AdminLayout({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <span className="ml-2 text-xl font-semibold text-white">SUHBA Admin</span>
+            <span className="ml-2 text-xl font-semibold text-white">Campaign Maker</span>
           </div>
           <button
             onClick={() => setSidebarOpen(false)}
@@ -234,7 +234,7 @@ export default function AdminLayout({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <span className="ml-2 text-xl font-semibold text-white">SUHBA Admin</span>
+            <span className="ml-2 text-xl font-semibold text-white">Campaign Maker</span>
           </div>
           
           {/* Desktop primary navigation */}
