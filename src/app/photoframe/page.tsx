@@ -645,7 +645,7 @@ const UserPhotoFraming: React.FC = () => {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-xl font-medium text-gray-800">Photo Framing</div>
+            <div className="text-xl font-medium text-gray-800">Campaign Maker</div>
             
             <div className="flex-1 max-w-xl mx-auto">
               <div className="flex items-center justify-between px-2 sm:px-10">
@@ -1443,7 +1443,7 @@ const UserPhotoFraming: React.FC = () => {
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-gray-600 text-sm">
-              © {new Date().getFullYear()} SUHBA Union. All rights reserved.
+              © {new Date().getFullYear()} Campaign Maker. All rights reserved.
             </p>
           </div>
           
