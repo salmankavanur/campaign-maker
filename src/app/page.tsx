@@ -476,6 +476,23 @@ export default function PhotoFramesLanding() {
                 >
                   3
                 </motion.div>
+                {theme === 'dark' ? (
+                  <motion.div 
+                    className="h-px w-full absolute top-10 right-0 bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.9 }}
+                  ></motion.div>
+                ) : (
+                  <motion.div 
+                    className="h-px w-full absolute top-10 right-0 bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.9 }}
+                  ></motion.div>
+                )}
                 <motion.div 
                   className={`relative z-20 w-20 h-20 mx-auto rounded-xl flex items-center justify-center mb-4 ${currentStyle.iconBg}`}
                   whileHover={{ rotate: 5, scale: 1.05 }}
