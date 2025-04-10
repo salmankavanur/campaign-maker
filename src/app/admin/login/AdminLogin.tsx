@@ -83,7 +83,7 @@ export default function AdminLogin() {
               </svg>
             </div>
             <span className="ml-3 text-xl font-bold text-white">
-              SUHBA UNION
+              Campaign Maker
             </span>
           </div>
 
