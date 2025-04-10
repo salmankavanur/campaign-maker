@@ -464,7 +464,7 @@ export default function PhotoFramesLanding() {
               </motion.div>
               
               <motion.div 
-                className="text-center"
+                className="text-center relative"
                 variants={itemVariants}
               >
                 <motion.div 
