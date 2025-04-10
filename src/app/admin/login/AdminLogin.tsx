@@ -21,10 +21,12 @@ export default function AdminLogin() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
 
   // Add subtle animation on mount
   useEffect(() => {
+    setMounted(true);
     const formElement = document.getElementById("login-form");
     if (formElement) {
       formElement.classList.add("opacity-100", "translate-y-0");
@@ -131,7 +133,7 @@ export default function AdminLogin() {
       </div>
 
       {/* Right side - Login Form */}
-      <div className="flex-1 flex items-center justify-center p-6 md:p-12">
+      <div className="flex-1 flex items-center justify-center p-4 md:p-8">
         <div className="w-full max-w-md">
           {/* Mobile Logo */}
           <div className="md:hidden flex items-center justify-center mb-10">
@@ -201,6 +203,7 @@ export default function AdminLogin() {
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                       disabled={isLoading}
+                      suppressHydrationWarning
                     />
                   </div>
                 </div>
@@ -217,6 +220,7 @@ export default function AdminLogin() {
                       type="button"
                       className="text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors focus:outline-none"
                       onClick={() => setShowPassword(!showPassword)}
+                      suppressHydrationWarning
                     >
                       {showPassword ? "Hide" : "Show"}
                     </button>
@@ -244,6 +248,7 @@ export default function AdminLogin() {
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
                         className="text-gray-400 hover:text-gray-300 focus:outline-none"
+                        suppressHydrationWarning
                       >
                         {showPassword ? (
                           <EyeOff className="h-5 w-5" />
@@ -262,6 +267,7 @@ export default function AdminLogin() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       disabled={isLoading}
+                      suppressHydrationWarning
                     />
                   </div>
                 </div>
@@ -275,6 +281,7 @@ export default function AdminLogin() {
                       className="h-4 w-4 text-indigo-500 bg-[#13172b] border-gray-600 rounded focus:ring-indigo-500 focus:ring-offset-gray-800"
                       checked={rememberMe}
                       onChange={(e) => setRememberMe(e.target.checked)}
+                      suppressHydrationWarning
                     />
                     <label
                       htmlFor="remember-me"
@@ -325,6 +332,7 @@ export default function AdminLogin() {
                       ? "bg-indigo-600 cursor-not-allowed opacity-70"
                       : "bg-indigo-500 hover:bg-indigo-600"
                   }`}
+                  suppressHydrationWarning
                 >
                   {isLoading ? (
                     <>
@@ -372,6 +380,7 @@ export default function AdminLogin() {
                 <button
                   type="button"
                   className="w-full inline-flex justify-center py-2 px-3 border border-gray-700 rounded-lg shadow-sm bg-[#13172b] text-sm font-medium text-gray-300 hover:bg-[#1a1f36] transition-colors"
+                  suppressHydrationWarning
                 >
                   <Github className="w-5 h-5 mr-2" />
                   GitHub
@@ -379,6 +388,7 @@ export default function AdminLogin() {
                 <button
                   type="button"
                   className="w-full inline-flex justify-center py-2 px-3 border border-gray-700 rounded-lg shadow-sm bg-[#13172b] text-sm font-medium text-gray-300 hover:bg-[#1a1f36] transition-colors"
+                  suppressHydrationWarning
                 >
                   <svg
                     className="w-5 h-5 mr-2"
