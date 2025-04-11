@@ -1214,7 +1214,7 @@ const UserPhotoFraming: React.FC = () => {
                           setUserName(e.target.value);
                         }}
                         placeholder="Enter your name (optional)"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                       />
                       {userName && (
                         <p className="mt-2 text-xs text-green-600 flex items-center">
