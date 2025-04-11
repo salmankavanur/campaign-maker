@@ -72,7 +72,7 @@ export default function AdminLayout({
   // Sample user data - in a real app, this would come from your auth system
   const user = {
     name: 'Admin User',
-    email: 'admin@suhbaunion.org',
+    email: 'admin@campaignmaker.app',
     avatar: null,
     role: 'Administrator'
   };
