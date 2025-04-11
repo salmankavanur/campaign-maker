@@ -645,7 +645,7 @@ const UserPhotoFraming: React.FC = () => {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-xl font-medium text-gray-800">Photo Framing</div>
+            <div className="text-xl font-medium text-gray-800">Campaign Maker</div>
             
             <div className="flex-1 max-w-xl mx-auto">
               <div className="flex items-center justify-between px-2 sm:px-10">
@@ -1371,7 +1371,7 @@ const UserPhotoFraming: React.FC = () => {
                 
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
                   <h4 className="text-base font-medium text-gray-800 mb-2">
-                    Thank You for Using Our Photo Framing Tool!
+                    Thank You for Using Our Campaign Maker Tool!
                   </h4>
                   <p className="text-gray-600 mb-4">
                     We hope you enjoyed creating your framed photo. Don't forget to download your creation and share it with your friends and family!

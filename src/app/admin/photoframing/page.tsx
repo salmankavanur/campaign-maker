@@ -90,7 +90,7 @@ export default function PhotoFramingAdminPage() {
             <div className="mr-3 h-8 w-8 bg-gradient-to-br from-emerald-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
               <ImageIcon className="h-4 w-4 text-white" />
             </div>
-            Photo Framing Tool
+            Campaign Maker
           </h1>
           <p className="text-gray-400 mt-1 flex items-center">
             {lastUpdated && (
@@ -406,7 +406,7 @@ export default function PhotoFramingAdminPage() {
                 <Upload className="h-12 w-12 text-gray-600" />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-50"></div>
                 <span className="absolute bottom-2 right-2 bg-black/80 backdrop-blur-sm text-xs text-white px-2 py-1 rounded border border-gray-700/50">
-                  Photo Framing Preview
+                  Campaign Maker Preview
                 </span>
               </div>
             </div>
@@ -414,10 +414,10 @@ export default function PhotoFramingAdminPage() {
             <div className="w-full lg:w-1/2 space-y-4">
               <h4 className="text-lg font-medium text-white flex items-center">
                 <Sparkles className="h-4 w-4 mr-2 text-amber-400" />
-                User Photo Framing Tool
+                User Campaign Maker Tool
               </h4>
               <p className="text-gray-300">
-                The photo framing tool allows users to upload their own photos and place them into the frames you create. 
+                The Campaign Maker tool allows users to upload their own photos and place them into the frames you create. 
                 Users can crop their images, position them within your pre-defined areas, and add their names.
               </p>
               <p className="text-gray-400 text-sm">
