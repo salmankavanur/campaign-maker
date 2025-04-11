@@ -104,6 +104,18 @@ const UserPhotoFraming: React.FC = () => {
   const [croppedImage, setCroppedImage] = useState<string | null>(null);
   const [aspect, setAspect] = useState<number | undefined>(undefined);
 
+  const filteredFrames = frames.filter(frame => 
+    frame.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const steps = [
+    { key: 'select', label: 'Select Frame' },
+    { key: 'upload', label: 'Upload Photo' },
+    { key: 'crop', label: 'Crop Photo' },
+    { key: 'preview', label: 'Preview' },
+    { key: 'complete', label: 'Complete' }
+  ];
+
   useEffect(() => {
     // Check if the user is on a mobile device
     const checkMobile = () => {
@@ -588,10 +600,6 @@ const UserPhotoFraming: React.FC = () => {
     }
   };
 
-  const filteredFrames = frames.filter(frame => 
-    frame.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   if (isLoading && currentStep === "select") {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -642,43 +650,23 @@ const UserPhotoFraming: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
-        <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors">
-              Campaign Maker
-            </Link>
-            
-            <div className="flex-1 max-w-xl mx-auto">
-              <div className="flex items-center justify-between px-2 sm:px-10">
-                {['select', 'upload', 'crop', 'preview', 'complete'].map((step, index) => (
-                  <div key={step} className="flex flex-col items-center">
-                    <div 
-                      className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mb-1 ${
-                        currentStep === step
-                          ? "bg-blue-500 text-white"
-                          : (['select', 'upload', 'crop', 'preview', 'complete'].indexOf(currentStep as string) >= index
-                              ? "bg-blue-500 text-white"
-                              : "bg-gray-200 text-gray-500")
-                      }`}
-                    >
-                      <span className="text-xs sm:text-sm">{index + 1}</span>
-                    </div>
-                    <span className="text-xs text-gray-500 hidden sm:block">
-                      {step === 'select' ? 'Select' :
-                       step === 'upload' ? 'Upload' :
-                       step === 'crop' ? 'Crop' :
-                       step === 'preview' ? 'Preview' :
-                       'Share'}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="hidden sm:block absolute left-0 right-0 mx-auto w-2/3 h-0.5 bg-gray-200 -z-10 mt-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-20 shadow-sm">
+      <div className="max-w-6xl mx-auto px-4 py-3 sm:py-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="/" className="flex items-center space-x-2 text-lg sm:text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+            <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 sm:w-7 sm:h-7" stroke="currentColor" strokeWidth="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span>Campaign Maker</span>
+          </a>
+          
+          <div className="w-full sm:flex-1 max-w-2xl mx-auto px-0 sm:px-8">
+            <div className="relative pt-2 sm:pt-3">
+              {/* Progress bar */}
+              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 rounded-full -translate-y-1/2">
                 <div 
-                  className="h-full bg-blue-500 transition-all" 
+                  className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-300 ease-in-out" 
                   style={{ 
                     width: 
                       currentStep === 'select' ? '0%' :
@@ -689,19 +677,56 @@ const UserPhotoFraming: React.FC = () => {
                   }}
                 ></div>
               </div>
+              
+              {/* Step indicators */}
+              <div className="flex items-center justify-between relative">
+                {steps.map((step, index) => {
+                  const isActive = step.key === currentStep;
+                  const isCompleted = steps.indexOf({key: currentStep} as any) >= index;
+                  
+                  return (
+                    <div key={step.key} className="flex flex-col items-center">
+                      <div 
+                        className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mb-1 sm:mb-2 transition-all duration-300 
+                          ${isActive 
+                            ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-200" 
+                            : (isCompleted
+                                ? "bg-blue-500 text-white" 
+                                : "bg-white text-gray-400 border border-gray-200")}
+                        `}
+                      >
+                        {isCompleted && !isActive ? (
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        ) : (
+                          <span className="text-xs sm:text-sm font-medium">{index + 1}</span>
+                        )}
+                      </div>
+                      <span className={`text-[10px] sm:text-xs font-medium whitespace-nowrap ${
+                        isActive ? "text-blue-600" : (isCompleted ? "text-gray-700" : "text-gray-400")
+                      }`}>
+                        {step.label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            
-            {currentStep !== "select" && (
-              <button
-                onClick={handleReset}
-                className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-md text-sm flex items-center transition-colors"
-              >
-                <RefreshCw className="h-3 w-3 mr-1" /> Restart
-              </button>
-            )}
           </div>
+          
+          {currentStep !== "select" && (
+            <button
+              onClick={handleReset}
+              className="w-full sm:w-auto px-4 py-2 bg-white hover:bg-gray-50 text-gray-600 rounded-lg text-sm flex items-center justify-center transition-colors border border-gray-200 shadow-sm hover:shadow font-medium"
+            >
+              <RefreshCw className="h-3.5 w-3.5 mr-1.5 text-gray-500" /> 
+              <span>Start Over</span>
+            </button>
+          )}
         </div>
-      </header>
+      </div>
+    </header>
 
       <main className="flex-grow">
         <div className="max-w-6xl mx-auto p-4 md:p-6 pb-16">
