@@ -731,49 +731,54 @@ const UserPhotoFraming: React.FC = () => {
       <main className="flex-grow">
         <div className="max-w-6xl mx-auto p-4 md:p-6 pb-16">
           {currentStep === "select" && (
-            <div className="space-y-8">
-              <div className="text-center max-w-2xl mx-auto mb-8 mt-4">
-                <h1 className="text-2xl md:text-3xl font-medium text-gray-900 mb-2">Create Beautiful Photo Frames</h1>
-                <p className="text-gray-600">
+            <div className="space-y-8 md:space-y-12">
+              <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 mt-4 md:mt-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-blue-50 mb-6">
+                  <Camera className="h-8 w-8 md:h-10 md:w-10 text-blue-600" />
+                </div>
+                <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Create Beautiful Photo Frames</h1>
+                <p className="text-gray-600 text-lg md:text-xl max-w-xl mx-auto">
                   Select a frame, upload your photo, and create shareable moments in seconds.
                 </p>
                 
-                <div className="mt-6 relative max-w-md mx-auto">
-                  <input
-                    type="text"
-                    placeholder="Search frames..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full py-2 px-4 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  />
-                  <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                <div className="mt-8 relative max-w-md mx-auto">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="Search frames..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full py-3 px-5 pl-12 border-2 border-gray-200 rounded-xl shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400 text-base transition-all duration-200"
+                    />
+                    <Search className="absolute left-4 top-3.5 h-5 w-5 text-gray-400" />
+                  </div>
                 </div>
               </div>
 
               {filteredFrames.length === 0 ? (
-                <div className="text-center bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-gray-500 mb-3">
-                    <Search className="h-6 w-6" />
+                <div className="text-center bg-white rounded-2xl border border-gray-200 p-8 md:p-10 shadow-lg max-w-md mx-auto">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 text-gray-500 mb-6">
+                    <Search className="h-8 w-8" />
                   </div>
-                  <h3 className="text-lg font-medium text-gray-900 mb-2">No matching frames</h3>
-                  <p className="text-gray-600 mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">No matching frames</h3>
+                  <p className="text-gray-600 text-lg mb-6">
                     No frames match your search for "{searchQuery}". Try a different search term.
                   </p>
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+                    className="px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-colors text-base font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
                   >
                     Clear Search
                   </button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
                   {filteredFrames.map((frame) => (
                     <div
                       key={frame._id}
-                      className={`group relative rounded-lg overflow-hidden cursor-pointer transition-all duration-200 
-                        bg-white border ${hoveredFrame === frame._id ? 'border-blue-500 shadow-md' : 'border-gray-200'}
-                        hover:shadow-md hover:border-blue-500
+                      className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 
+                        bg-white border-2 ${hoveredFrame === frame._id ? 'border-blue-500 shadow-xl' : 'border-gray-200'}
+                        hover:shadow-xl hover:border-blue-500 hover:-translate-y-1
                       `}
                       onClick={() => handleSelectFrame(frame)}
                       onMouseEnter={() => setHoveredFrame(frame._id)}
@@ -790,32 +795,32 @@ const UserPhotoFraming: React.FC = () => {
                           alt={frame.name}
                           width={frame.dimensions.width}
                           height={frame.dimensions.height}
-                          className="w-full h-full object-contain p-2"
+                          className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         />
                         
-                        <div className="absolute top-2 right-2 z-10 flex space-x-1">
+                        <div className="absolute top-3 right-3 z-10 flex space-x-2">
                           <button 
                             onClick={(e) => handleCopyFrameLink(frame._id, e)}
-                            className="p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm transition-colors"
+                            className="p-2 rounded-full bg-white/90 hover:bg-white shadow-md hover:shadow-lg transition-all duration-200"
                             aria-label="Copy share link"
                             title="Copy share link"
                           >
                             {frameCopySuccess[frame._id] ? (
-                              <CheckCircle2 className="h-4 w-4 text-green-500" />
+                              <CheckCircle2 className="h-5 w-5 text-green-500" />
                             ) : (
-                              <LinkIcon className="h-4 w-4 text-gray-500" />
+                              <LinkIcon className="h-5 w-5 text-gray-500" />
                             )}
                           </button>
                           
                           <button 
                             onClick={(e) => toggleFavorite(frame._id, e)}
-                            className="p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm transition-colors"
+                            className="p-2 rounded-full bg-white/90 hover:bg-white shadow-md hover:shadow-lg transition-all duration-200"
                             aria-label={favoriteFrames.includes(frame._id) ? "Remove from favorites" : "Add to favorites"}
                             title={favoriteFrames.includes(frame._id) ? "Remove from favorites" : "Add to favorites"}
                           >
                             <Heart 
-                              className={`h-4 w-4 ${favoriteFrames.includes(frame._id) 
+                              className={`h-5 w-5 ${favoriteFrames.includes(frame._id) 
                                 ? 'text-red-500 fill-red-500' 
                                 : 'text-gray-400'}`} 
                             />
@@ -823,18 +828,18 @@ const UserPhotoFraming: React.FC = () => {
                         </div>
                       </div>
                       
-                      <div className="p-3 border-t border-gray-100">
-                        <h3 className="text-sm font-medium text-gray-900 truncate">
+                      <div className="p-4 border-t border-gray-100">
+                        <h3 className="text-base font-semibold text-gray-900 truncate">
                           {frame.name}
                         </h3>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-sm text-gray-500 mt-1">
                           {frame.dimensions.width} × {frame.dimensions.height} px
                         </p>
                       </div>
                       
                       <div className="absolute inset-0 bg-blue-500/10 flex items-center justify-center opacity-0 
                         group-hover:opacity-100 transition-opacity duration-200">
-                        <div className="bg-white shadow-md rounded-md py-2 px-4 text-blue-500 font-medium">
+                        <div className="bg-white shadow-lg rounded-xl py-3 px-6 text-blue-500 font-semibold text-base">
                           Select Frame
                         </div>
                       </div>
@@ -844,18 +849,18 @@ const UserPhotoFraming: React.FC = () => {
               )}
               
               {favoriteFrames.length > 0 && (
-                <div className="mt-10 pt-6 border-t border-gray-200">
-                  <h2 className="text-lg font-medium text-gray-900 mb-4 flex items-center">
-                    <Heart className="h-4 w-4 mr-2 text-red-500 fill-red-500" /> 
+                <div className="mt-12 pt-8 border-t border-gray-200">
+                  <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                    <Heart className="h-5 w-5 mr-2 text-red-500 fill-red-500" /> 
                     Your Favorite Frames
                   </h2>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
                     {frames
                       .filter(frame => favoriteFrames.includes(frame._id))
                       .map((frame) => (
                         <div
                           key={`fav-${frame._id}`}
-                          className="group relative rounded-md overflow-hidden cursor-pointer bg-white border border-gray-200 hover:border-red-400 hover:shadow-sm transition-all"
+                          className="group relative rounded-xl overflow-hidden cursor-pointer bg-white border-2 border-gray-200 hover:border-red-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                           onClick={() => handleSelectFrame(frame)}
                         >
                           <div 
@@ -869,7 +874,7 @@ const UserPhotoFraming: React.FC = () => {
                               alt={frame.name}
                               width={frame.dimensions.width}
                               height={frame.dimensions.height}
-                              className="w-full h-full object-contain p-1"
+                              className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
                               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                             />
                             
@@ -878,19 +883,19 @@ const UserPhotoFraming: React.FC = () => {
                                 e.stopPropagation();
                                 handleCopyFrameLink(frame._id, e);
                               }}
-                              className="absolute top-1 right-1 z-10 p-1 rounded-full bg-white/80 hover:bg-white shadow-sm transition-colors"
+                              className="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/90 hover:bg-white shadow-md hover:shadow-lg transition-all duration-200"
                               aria-label="Copy share link"
                               title="Copy share link"
                             >
                               {frameCopySuccess[frame._id] ? (
-                                <CheckCircle2 className="h-3 w-3 text-green-500" />
+                                <CheckCircle2 className="h-4 w-4 text-green-500" />
                               ) : (
-                                <LinkIcon className="h-3 w-3 text-gray-500" />
+                                <LinkIcon className="h-4 w-4 text-gray-500" />
                               )}
                             </button>
                           </div>
-                          <div className="p-2 border-t border-gray-100">
-                            <h3 className="text-xs font-medium text-gray-700 truncate">
+                          <div className="p-3 border-t border-gray-100">
+                            <h3 className="text-sm font-medium text-gray-700 truncate">
                               {frame.name}
                             </h3>
                           </div>
