@@ -1151,8 +1151,8 @@ const UserPhotoFraming: React.FC = () => {
                 </p>
               </div>
               
-              <div className="p-4 sm:p-6">
-                <div className={`bg-gray-50 rounded-lg overflow-hidden border border-gray-200 ${isMobileDevice ? 'p-2' : 'p-4'} mb-4 sm:mb-6 flex items-center justify-center relative`}>
+              <div className="p-2 sm:p-6">
+                <div className={`bg-gray-50 rounded-lg overflow-hidden border border-gray-200 ${isMobileDevice ? 'p-1' : 'p-4'} ${isMobileDevice ? 'mb-2' : 'mb-6'} flex items-center justify-center relative`}>
                   {isLoading && (
                     <div className="absolute inset-0 bg-white/80 flex items-center justify-center z-10">
                       <div className="flex flex-col items-center">
@@ -1167,14 +1167,14 @@ const UserPhotoFraming: React.FC = () => {
                     style={{
                       width: 'auto',
                       maxWidth: '100%',
-                      maxHeight: isMobileDevice ? '60vh' : '70vh'
+                      maxHeight: isMobileDevice ? '55vh' : '70vh'
                     }}
                   >
                     <canvas
                       ref={canvasRef}
                       style={{
                         maxWidth: '100%',
-                        maxHeight: isMobileDevice ? '60vh' : '70vh',
+                        maxHeight: isMobileDevice ? '55vh' : '70vh',
                         objectFit: 'contain'
                       }}
                       className="rounded-md shadow-sm"
@@ -1182,7 +1182,7 @@ const UserPhotoFraming: React.FC = () => {
                   </div>
                 </div>
 
-                <div className={`text-center text-xs text-gray-500 ${isMobileDevice ? 'mb-4' : 'mb-6'}`}>
+                <div className={`text-center text-xs text-gray-500 ${isMobileDevice ? 'mb-2' : 'mb-6'}`}>
                   Final dimensions: {selectedFrame.dimensions.width} × {selectedFrame.dimensions.height} pixels
                 </div>
 
