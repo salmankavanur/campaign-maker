@@ -1393,7 +1393,7 @@ const UserPhotoFraming: React.FC = () => {
         </div>
       </main>
       
-      {(currentStep === "select" || currentStep === "upload") && (
+      {(currentStep === "select" || currentStep === "upload") && !isMobileDevice && (
         <section className="bg-white border-t border-gray-200 py-10 mt-6">
           <div className="max-w-5xl mx-auto px-4">
             <h2 className="text-xl font-medium text-gray-900 text-center mb-8">How It Works</h2>
