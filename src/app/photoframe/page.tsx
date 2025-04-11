@@ -907,30 +907,32 @@ const UserPhotoFraming: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-                      <div className="flex">
-                        <div className="flex-shrink-0">
-                          <Info className="h-5 w-5 text-blue-500" />
-                        </div>
-                        <div className="ml-3">
-                          <h4 className="text-sm font-medium text-blue-800">Tips for Best Results:</h4>
-                          <ul className="mt-2 text-sm text-blue-700 space-y-2">
-                            <li className="flex items-start">
-                              <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">1</div>
-                              <span>Use high-quality photos for the best output</span>
-                            </li>
-                            <li className="flex items-start">
-                              <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">2</div>
-                              <span>In the next step, you'll crop your photo to fit the frame</span>
-                            </li>
-                            <li className="flex items-start">
-                              <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">3</div>
-                              <span>Add your name to personalize your framed photo</span>
-                            </li>
-                          </ul>
+                    {!isMobileDevice && (
+                      <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                        <div className="flex">
+                          <div className="flex-shrink-0">
+                            <Info className="h-5 w-5 text-blue-500" />
+                          </div>
+                          <div className="ml-3">
+                            <h4 className="text-sm font-medium text-blue-800">Tips for Best Results:</h4>
+                            <ul className="mt-2 text-sm text-blue-700 space-y-2">
+                              <li className="flex items-start">
+                                <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">1</div>
+                                <span>Use high-quality photos for the best output</span>
+                              </li>
+                              <li className="flex items-start">
+                                <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">2</div>
+                                <span>In the next step, you'll crop your photo to fit the frame</span>
+                              </li>
+                              <li className="flex items-start">
+                                <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">3</div>
+                                <span>Add your name to personalize your framed photo</span>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
                   </div>
 
                   <div className="w-full lg:w-1/2 lg:order-1">
