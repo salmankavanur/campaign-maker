@@ -1221,30 +1221,32 @@ const UserPhotoFraming: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-sm text-gray-600">
-                    <h4 className="font-medium text-gray-700 mb-3 flex items-center">
-                      <Info className="h-4 w-4 mr-2 text-blue-500" />
-                      What's Next?
-                    </h4>
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-gray-200 text-gray-700 text-xs mr-2">1</div>
-                        <span>When you click "Generate Final Image", your photo will be processed</span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-gray-200 text-gray-700 text-xs mr-2">2</div>
-                        <span>You'll be able to download your framed photo</span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-gray-200 text-gray-700 text-xs mr-2">3</div>
-                        <span>Share your creation directly to social media or messaging apps</span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-gray-200 text-gray-700 text-xs mr-2">4</div>
-                        <span>If you need to make changes, use the "Back" button</span>
-                      </li>
-                    </ul>
-                  </div>
+                  {!isMobileDevice && (
+                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 text-sm text-gray-600">
+                      <h4 className="font-medium text-gray-700 mb-3 flex items-center">
+                        <Info className="h-4 w-4 mr-2 text-blue-500" />
+                        What's Next?
+                      </h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-gray-200 text-gray-700 text-xs mr-2">1</div>
+                          <span>When you click "Generate Final Image", your photo will be processed</span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-gray-200 text-gray-700 text-xs mr-2">2</div>
+                          <span>You'll be able to download your framed photo</span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-gray-200 text-gray-700 text-xs mr-2">3</div>
+                          <span>Share your creation directly to social media or messaging apps</span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-gray-200 text-gray-700 text-xs mr-2">4</div>
+                          <span>If you need to make changes, use the "Back" button</span>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
 
                 {error && (
