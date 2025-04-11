@@ -1295,12 +1295,12 @@ const UserPhotoFraming: React.FC = () => {
 
           {currentStep === "complete" && finalImage && selectedFrame && (
             <div className="max-w-4xl mx-auto bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden mt-6">
-              <div className="bg-gray-50 p-4 border-b border-gray-200">
+              {/* <div className="bg-gray-50 p-4 border-b border-gray-200">
                 <h2 className="text-lg font-medium text-gray-900">Your Framed Photo is Ready!</h2>
                 <p className="text-sm text-gray-500 mt-1">
                   Download or share your creation
                 </p>
-              </div>
+              </div> */}
               
               <div className="p-6">
                 <div className="text-center mb-6">
@@ -1308,7 +1308,7 @@ const UserPhotoFraming: React.FC = () => {
                     <Check className="h-6 w-6" />
                   </div>
                   <h2 className="text-xl font-medium text-gray-900 mb-2">Success!</h2>
-                  <p className="text-gray-600">Your photo has been successfully framed and is ready to download or share.</p>
+                  <p className="text-gray-600">Your photo is ready to download or share.</p>
                   <p className="text-xs text-gray-500 mt-2">
                     Final dimensions: {selectedFrame.dimensions.width} × {selectedFrame.dimensions.height} pixels
                   </p>
