@@ -257,7 +257,7 @@ export default function PhotoFramesLanding() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Link 
-                  href="/create" 
+                  href="/photoframe" 
                   className={`px-6 py-3 text-white font-medium rounded-lg transition-all flex items-center gap-2 shadow-lg ${currentStyle.button} relative overflow-hidden group`}
                 >
                   <span className="absolute inset-0 w-1/12 h-full bg-white opacity-20 transform -skew-x-45 group-hover:w-full transition-all duration-700"></span>
