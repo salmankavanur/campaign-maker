@@ -1084,30 +1084,32 @@ const UserPhotoFraming: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-                    <h4 className="text-sm font-medium text-blue-800 mb-3 flex items-center">
-                      <Info className="h-4 w-4 mr-2" />
-                      Cropping Tips
-                    </h4>
-                    <ul className="space-y-3 text-sm text-blue-700">
-                      <li className="flex items-start">
-                        <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">1</div>
-                        <span>Focus on the most important part of your photo</span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">2</div>
-                        <span>The aspect ratio is fixed to match the frame's photo area</span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">3</div>
-                        <span>Make sure faces are clearly visible and centered</span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">4</div>
-                        <span>{isMobileDevice ? "Use Auto-Fit for best results" : "When you're happy with the crop, click \"Apply Crop\""}</span>
-                      </li>
-                    </ul>
-                  </div>
+                  {!isMobileDevice && (
+                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                      <h4 className="text-sm font-medium text-blue-800 mb-3 flex items-center">
+                        <Info className="h-4 w-4 mr-2" />
+                        Cropping Tips
+                      </h4>
+                      <ul className="space-y-3 text-sm text-blue-700">
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">1</div>
+                          <span>Focus on the most important part of your photo</span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">2</div>
+                          <span>The aspect ratio is fixed to match the frame's photo area</span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">3</div>
+                          <span>Make sure faces are clearly visible and centered</span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 h-4 w-4 inline-flex items-center justify-center rounded-full bg-blue-200 text-blue-600 text-xs mr-2">4</div>
+                          <span>{isMobileDevice ? "Use Auto-Fit for best results" : "When you're happy with the crop, click \"Apply Crop\""}</span>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
 
                 {error && (
