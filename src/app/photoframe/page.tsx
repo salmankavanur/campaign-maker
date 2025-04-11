@@ -1435,47 +1435,101 @@ const UserPhotoFraming: React.FC = () => {
       </main>
       
       {(currentStep === "select" || currentStep === "upload") && !isMobileDevice && (
-        <section className="bg-white border-t border-gray-200 py-10 mt-6">
+        <section className="bg-white border-t border-gray-200 py-16 mt-6">
           <div className="max-w-5xl mx-auto px-4">
-            <h2 className="text-xl font-medium text-gray-900 text-center mb-8">How It Works</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
-              <div className="flex flex-col items-center text-center">
-                <div className="relative w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <Camera className="h-8 w-8 text-blue-600" />
-                  <div className="absolute -right-2 -top-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center font-medium text-sm">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
+              <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+              <div 
+                className="flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300"
+                onMouseEnter={(e) => {
+                  const target = e.currentTarget;
+                  target.querySelector('.step-icon')?.classList.add('animate-bounce');
+                  setTimeout(() => {
+                    target.querySelector('.step-icon')?.classList.remove('animate-bounce');
+                  }, 1000);
+                }}
+              >
+                <div className="relative">
+                  <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors duration-300 step-icon">
+                    <Camera className="h-10 w-10 text-blue-600" />
+                  </div>
+                  <div className="absolute -right-2 -top-2 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg
+                    group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
                     1
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-gray-800 mb-2">Select a Frame</h3>
-                <p className="text-gray-600 text-sm">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                  Select a Frame
+                </h3>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
                   Choose from our collection of beautiful frames designed for every occasion.
                 </p>
               </div>
               
-              <div className="flex flex-col items-center text-center">
-                <div className="relative w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <CropIcon className="h-8 w-8 text-blue-600" />
-                  <div className="absolute -right-2 -top-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center font-medium text-sm">
+              <div 
+                className="flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300"
+                onMouseEnter={(e) => {
+                  const target = e.currentTarget;
+                  target.querySelector('.step-icon')?.classList.add('animate-bounce');
+                  setTimeout(() => {
+                    target.querySelector('.step-icon')?.classList.remove('animate-bounce');
+                  }, 1000);
+                }}
+              >
+                <div className="relative">
+                  <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors duration-300 step-icon">
+                    <CropIcon className="h-10 w-10 text-blue-600" />
+                  </div>
+                  <div className="absolute -right-2 -top-2 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg
+                    group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
                     2
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-gray-800 mb-2">Add Your Photo</h3>
-                <p className="text-gray-600 text-sm">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                  Add Your Photo
+                </h3>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
                   Upload and crop your favorite photo to fit perfectly in the frame.
                 </p>
               </div>
               
-              <div className="flex flex-col items-center text-center">
-                <div className="relative w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <Share2 className="h-8 w-8 text-blue-600" />
-                  <div className="absolute -right-2 -top-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center font-medium text-sm">
+              <div 
+                className="flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300"
+                onMouseEnter={(e) => {
+                  const target = e.currentTarget;
+                  target.querySelector('.step-icon')?.classList.add('animate-bounce');
+                  setTimeout(() => {
+                    target.querySelector('.step-icon')?.classList.remove('animate-bounce');
+                  }, 1000);
+                }}
+              >
+                <div className="relative">
+                  <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors duration-300 step-icon">
+                    <Share2 className="h-10 w-10 text-blue-600" />
+                  </div>
+                  <div className="absolute -right-2 -top-2 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg
+                    group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300">
                     3
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-gray-800 mb-2">Share Your Creation</h3>
-                <p className="text-gray-600 text-sm">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                  Share Your Creation
+                </h3>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
                   Download your framed photo and share it with friends and family.
                 </p>
+              </div>
+            </div>
+
+            <div className="mt-16 text-center">
+              <div className="inline-flex items-center p-1 rounded-full bg-blue-50 hover:bg-blue-100 transition-colors duration-300">
+                <div className="px-6 py-2 rounded-full bg-blue-500 text-white font-medium hover:bg-blue-600 transition-colors duration-300 cursor-pointer">
+                  Get Started Now
+                </div>
               </div>
             </div>
           </div>
