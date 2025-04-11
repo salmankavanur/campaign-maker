@@ -27,6 +27,7 @@ import { useRouter } from "next/navigation";
 import NextImage from "next/image"; // Import Next.js Image as NextImage
 import ReactCrop, { Crop, PixelCrop, centerCrop, makeAspectCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
+import Link from 'next/link';
 
 interface PlacementCoords {
   x: number;
@@ -645,7 +646,9 @@ const UserPhotoFraming: React.FC = () => {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-xl font-medium text-gray-800">Campaign Maker</div>
+            <Link href="/" className="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors">
+              Campaign Maker
+            </Link>
             
             <div className="flex-1 max-w-xl mx-auto">
               <div className="flex items-center justify-between px-2 sm:px-10">
