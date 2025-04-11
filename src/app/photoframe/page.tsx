@@ -1188,36 +1188,40 @@ const UserPhotoFraming: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div className="bg-white rounded-lg p-4 border border-gray-200">
-                    <h3 className="text-base font-medium text-gray-700 mb-3 flex items-center">
-                      <Eye className="h-4 w-4 mr-2 text-blue-500" />
-                      Preview Details
-                    </h3>
+                    {!isMobileDevice && (
+                      <>
+                        <h3 className="text-base font-medium text-gray-700 mb-3 flex items-center">
+                          <Eye className="h-4 w-4 mr-2 text-blue-500" />
+                          Preview Details
+                        </h3>
 
-                    <div className="space-y-4">
-                      <p className="text-sm text-gray-600">
-                        This is how your framed photo will look. If you're happy with it, click "Generate Final Image" to create your shareable picture.
-                      </p>
-
-                      <div className="mt-4">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Personalize Your Frame
-                        </label>
-                        <input
-                          type="text"
-                          value={userName}
-                          onChange={(e) => {
-                            setUserName(e.target.value);
-                          }}
-                          placeholder="Enter your name (optional)"
-                          className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        />
-                        {userName && (
-                          <p className="mt-2 text-xs text-green-600 flex items-center">
-                            <CheckCircle2 className="h-3 w-3 mr-1" />
-                            Your name will appear on the frame
+                        <div className="space-y-4">
+                          <p className="text-sm text-gray-600">
+                            This is how your framed photo will look. If you're happy with it, click "Generate Final Image" to create your shareable picture.
                           </p>
-                        )}
-                      </div>
+                        </div>
+                      </>
+                    )}
+
+                    <div className="mt-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Personalize Your Frame
+                      </label>
+                      <input
+                        type="text"
+                        value={userName}
+                        onChange={(e) => {
+                          setUserName(e.target.value);
+                        }}
+                        placeholder="Enter your name (optional)"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      />
+                      {userName && (
+                        <p className="mt-2 text-xs text-green-600 flex items-center">
+                          <CheckCircle2 className="h-3 w-3 mr-1" />
+                          Your name will appear on the frame
+                        </p>
+                      )}
                     </div>
                   </div>
 
